@@ -1,45 +1,58 @@
-/**
-Template file for classes using GradleRIO
-@author Jaci
-*/
+// Note 'apply false' for each plugin. This ensures they aren't applied to the root project (here),
+// but it makes the plugins available for subprojects.
+plugins {
+    // GradleRIO is used for code intended to go on robots, which is why it's only applied to the 'robot' project.
+    id "jaci.openrio.gradle.GradleRIO" version "2018.03.06" apply false
 
-buildscript {
-  repositories {
-	mavenCentral()
-	maven {
-		name = "GradleRIO"
-		url = "http://dev.imjac.in/maven"
-	}
-  }
-  dependencies {
-    classpath group: 'jaci.openrio.gradle', name: 'GradleRIO', version: '+'			//Change this line if you wish to Update GradleRIO
-  }
+    // EmbeddedTools is the backing library for GradleRIO, and includes everything that's non-frc specific, which
+    // is why we use it for our coprocessor project.
+    id "jaci.gradle.EmbeddedTools" version "2018.02.04" apply false
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'GradleRIO'                                 //Apply the GradleRIO plugin
+// allprojects = root project + subprojects
+// IDE plugins should be applied to the entire project.
+allprojects {
+    apply plugin: "idea"
+    apply plugin: "eclipse"
 
-gradlerio.robotClass = "org.usfirst.frc.team0000.Robot"   //The class for the main Robot Class. Used in manifest
-gradlerio.team = "0000"                                   //Your FRC team number (e.g. 5333 for team 'Can't C#', or 47 for Chief Delphi)
-//gradlerio.rioIP = "10.53.33.20"                         //Uncomment to specify the IP address of the RIO
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://first.wpi.edu/FRC/roborio/maven/release'
+        }
 
-def robotManifest = {
-  attributes 'Main-Class': 'edu.wpi.first.wpilibj.RobotBase'
-  attributes 'Robot-Class': gradlerio.robotClass
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
 }
 
-jar {
-  from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-  manifest robotManifest
+// Apply java plugin only to subprojects
+// Also apply restructure.
+subprojects {
+    apply plugin: "java"
+
+    sourceSets.main.java {
+        srcDirs = ['src']; include '**/*.java'
+    }
+
+    sourceSets.main.resources {
+        srcDirs = ['src']; exclude '**/*.java'
+    }
+    configurations {
+        config {
+            description = 'File configs'
+        }
+    }
+
+    dependencies {
+        compile 'org.apache.logging.log4j:log4j-api:2.10.0'
+        compile 'org.apache.logging.log4j:log4j-core:2.10.0'
+        compile fileTree(dir: 'lib', include: '*.jar')
+        config fileTree(dir: 'config', include: '*.properties')
+    }
 }
 
-task genJavadoc(type: Jar, dependsOn: javadoc) {
-  classifier = 'javadoc'
-  from javadoc.destinationDir
-}
-
-artifacts {
-  archives genJavadoc
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.7'
 }
