@@ -8,12 +8,12 @@ To use, simply use from the root of the project:
 
 ### Windows
 ```cmd
-> gradlew
+> gradlew <some task>
 ```
 
 ### Unix/macOS
 ```bash
-$ ./gradlew
+$ ./gradlew <some task>
 ```
 
 ...along with any task that you would want to run. Some useful tasks:
