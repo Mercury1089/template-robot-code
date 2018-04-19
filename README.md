@@ -12,7 +12,7 @@ To use, simply use from the root of the project:
 ```
 
 ### Unix/macOS
-```cmd
+```bash
 $ ./gradlew
 ```
 
