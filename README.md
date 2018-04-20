@@ -1,5 +1,5 @@
 # template-robot-code
-A robot project template, which can be downloaded and used as a starting point for any FRC robot.
+A robot project template, which can be downloaded and used as a starting point for any FRC robot. Simply download this repo and start programming!
 
 ## Gradle
 Gradle is a flexible build tool that this entire project is using to deploy to the robot, test code, etc.
