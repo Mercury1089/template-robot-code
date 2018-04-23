@@ -95,7 +95,7 @@ public class MoveOnPath extends Command {
         tl = Pathfinder.readFromCSV(new File("/home/lvuser/trajectories/" + name + "_left_detailed.csv"));
         tr = Pathfinder.readFromCSV(new File("/home/lvuser/trajectories/" + name + "_right_detailed.csv"));
 
-        // No need for an if check; if it doesn't load, the entire program will break due to an exception in the native;
+        // No need for a null check; if it doesn't load, the entire program will break due to an exception in the native;
         // it can't be stopped.
         cmd = new MoveOnPath(tl, tr, tl.length(), direction);
 
@@ -111,7 +111,7 @@ public class MoveOnPath extends Command {
         tl = Pathfinder.readFromFile(new File("/home/lvuser/trajectories/" + name + "_left_detailed.traj"));
         tr = Pathfinder.readFromFile(new File("/home/lvuser/trajectories/" + name + "_right_detailed.traj"));
 
-        // No need for an if check; if it doesn't load, the entire program will break due to an exception in the native;
+        // No need for a null check; if it doesn't load, the entire program will break due to an exception in the native;
         // it can't be stopped.
         cmd = new MoveOnPath(tl, tr, tl.length(), direction);
 
