@@ -16,7 +16,7 @@ and loading the trajectory from file:
 
 ```java
 // Load a motion profile from a *.traj file
-MoveOnPath cmd = MoveOnPath.fromTraj("SwitchFrontRight", Direction.FORWARDS);
+MoveOnPath cmd = MoveOnPath.fromTraj("SwitchFrontRight", Direction.FORWARD);
 
 // Start the command
 cmd.start();
