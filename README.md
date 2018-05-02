@@ -37,3 +37,4 @@ will run the deploy command for the robot subproject ONLY.
 ## Credits
 [Jaci](https://github.com/JacisNonsense) for creating the Gradle plugins that allow this to work  
 [Endoman123](https://github.com/Endoman123) for creating a motion profile generator frontend to use
+[croadfeldt](https://github.com/croadfeldt/wpilib_pixy_spi_java) for the original versions of the Pixy SPI and I2C classes
