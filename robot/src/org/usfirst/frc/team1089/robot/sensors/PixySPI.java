@@ -19,8 +19,7 @@ import java.util.ArrayList;
 
 /**
  * PixyCam implementation using SPI interface
- *
- * @deprecated since we cannot use the SPI interface on the RIO.
+ * Thanks to croadfeldt (https://github.com/croadfeldt/wpilib_pixy_spi_java) for the original implementation
  */
 public class PixySPI implements PIDSource {
     private static final Logger log = LogManager.getLogger(PixySPI.class);

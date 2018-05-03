@@ -12,6 +12,7 @@ import org.usfirst.frc.team1089.util.config.SensorsSettings;
 
 /**
  * PixyCam implementation using the I2C interface
+ * Thanks to croadfeldt (https://github.com/croadfeldt/wpilib_pixy_spi_java) for the original implementation
  */
 public class PixyI2C implements PIDSource {
     private static final Logger LOG = LogManager.getLogger(PixyI2C.class);
