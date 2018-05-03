@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.usfirst.frc.team1089.robot.commands;
 
 import com.ctre.phoenix.motion.MotionProfileStatus;
@@ -90,14 +87,13 @@ public class MoveOnPath extends Command {
         Trajectory tl = null, tr = null;
 	    MoveOnPath cmd = null;
 
-        cmd.setName("MoveOnPath-" + name);
-
         tl = Pathfinder.readFromCSV(new File("/home/lvuser/trajectories/" + name + "_left_detailed.csv"));
         tr = Pathfinder.readFromCSV(new File("/home/lvuser/trajectories/" + name + "_right_detailed.csv"));
 
         // No need for a null check; if it doesn't load, the entire program will break due to an exception in the native;
         // it can't be stopped.
         cmd = new MoveOnPath(tl, tr, tl.length(), direction);
+        cmd.setName("MoveOnPath-" + name);
 
         return cmd;
 	}
@@ -106,14 +102,13 @@ public class MoveOnPath extends Command {
         Trajectory tl = null, tr = null;
         MoveOnPath cmd = null;
 
-        cmd.setName("MoveOnPath-" + name);
-
         tl = Pathfinder.readFromFile(new File("/home/lvuser/trajectories/" + name + "_left_detailed.traj"));
         tr = Pathfinder.readFromFile(new File("/home/lvuser/trajectories/" + name + "_right_detailed.traj"));
 
         // No need for a null check; if it doesn't load, the entire program will break due to an exception in the native;
         // it can't be stopped.
         cmd = new MoveOnPath(tl, tr, tl.length(), direction);
+        cmd.setName("MoveOnPath-" + name);
 
         return cmd;
     }
