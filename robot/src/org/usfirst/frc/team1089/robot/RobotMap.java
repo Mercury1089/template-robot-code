@@ -30,7 +30,8 @@ public class RobotMap {
             DRIVETRAIN_ML = 1,
 			DRIVETRAIN_MR = 2,
 			DRIVETRAIN_SL = 3,
-			DRIVETRAIN_SR = 4;
+			DRIVETRAIN_SR = 4,
+			PCM = 5;
 
 		private CAN() { } // Should never be constructed.
 	}
@@ -80,6 +81,16 @@ public class RobotMap {
 			GAMEPAD = 2;
 		
 		private DS_USB() { } // Should never be constructed.
+	}
+
+	/**
+	 * 
+	 */
+	public static class PCM {
+		public static final int PISTON_ACTUATE = 0,
+			PISTON_RETRACT = 1; 
+
+		private PCM() { } // Should never be constructed
 	}
 
 	public static class GAMEPAD_BUTTONS {
