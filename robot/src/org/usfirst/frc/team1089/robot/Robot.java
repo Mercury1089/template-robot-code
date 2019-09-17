@@ -24,7 +24,7 @@ public class Robot extends IterativeRobot {
 	// Subsystems
 	public static DriveTrain driveTrain;
 	public static PDP pdp;
-	//public static TemplateDoubleSolenoid templateDoubleSolenoid;
+	public static TemplateDoubleSolenoid templateDoubleSolenoid;
 
 	private AutonCommand autonCommand;
 
@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot {
 
 		pdp = new PDP();
 		
-		//templateDoubleSolenoid = new TemplateDoubleSolenoid();
+		templateDoubleSolenoid = new TemplateDoubleSolenoid();
 
 		// OI NEEDS to be constructed as the last line for everything to work.
 		oi = new OI();

@@ -1,10 +1,9 @@
-/*
 package org.usfirst.frc.team1089.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team1089.robot.Robot;
-//import org.usfirst.frc.team1089.robot.subsystems.TemplateDoubleSolenoid.DoubleSolenoidPosition;
+import org.usfirst.frc.team1089.robot.subsystems.TemplateDoubleSolenoid.DoubleSolenoidPosition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -53,4 +52,4 @@ public class MovePiston extends Command {
     protected void interrupted() {
         LOG.info(getName() + " Interrupted");
     }
-}*/
+}
