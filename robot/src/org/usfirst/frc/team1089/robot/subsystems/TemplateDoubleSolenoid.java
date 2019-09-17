@@ -19,8 +19,6 @@ public class TemplateDoubleSolenoid extends Subsystem {
   public TemplateDoubleSolenoid(){
     isOut = false;
     doubleSolenoid = new DoubleSolenoid(CAN.PCM, PCM.PISTON_ACTUATE, PCM.PISTON_RETRACT);
-    //Ensures piston(s) are retracted
-    doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
   @Override
