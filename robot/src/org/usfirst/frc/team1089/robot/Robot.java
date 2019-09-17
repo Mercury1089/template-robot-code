@@ -6,8 +6,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.usfirst.frc.team1089.robot.auton.AutonCommand;
-import org.usfirst.frc.team1089.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team1089.robot.subsystems.PDP;
+//import org.usfirst.frc.team1089.robot.subsystems.DriveTrain;
+//import org.usfirst.frc.team1089.robot.subsystems.PDP;
+import org.usfirst.frc.team1089.robot.subsystems.*;
 
 import static org.usfirst.frc.team1089.robot.RobotMap.*;
 
@@ -24,6 +25,7 @@ public class Robot extends IterativeRobot {
 	// Subsystems
 	public static DriveTrain driveTrain;
 	public static PDP pdp;
+	//public static TemplateDoubleSolenoid templateDoubleSolenoid;
 
 	private AutonCommand autonCommand;
 
@@ -46,6 +48,8 @@ public class Robot extends IterativeRobot {
 		driveTrain.resetEncoders();
 
 		pdp = new PDP();
+		
+		//templateDoubleSolenoid = new TemplateDoubleSolenoid();
 
 		// OI NEEDS to be constructed as the last line for everything to work.
 		oi = new OI();
